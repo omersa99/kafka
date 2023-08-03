@@ -5,6 +5,10 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
+import { TableList } from "./table/TableList";
+import { TableCreate } from "./table/TableCreate";
+import { TableEdit } from "./table/TableEdit";
+import { TableShow } from "./table/TableShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -30,7 +34,15 @@ const App = (): React.ReactElement => {
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}
-      ></Admin>
+      >
+        <Resource
+          name="Table"
+          list={TableList}
+          edit={TableEdit}
+          create={TableCreate}
+          show={TableShow}
+        />
+      </Admin>
     </div>
   );
 };
